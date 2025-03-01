@@ -28,32 +28,25 @@
     <style type="text/css">
         @font-face {
             font-family: "GE SS Two Medium";
-            src: url("Fonts/GESSTwoMedium-Medium.ttf")
-                format("truetype");
+            src: url("Fonts/GESSTwoMedium-Medium.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
-
         @font-face {
             font-family: "Helvetica-Neue";
-            src: url("https://forbesme-prestaging-media.s3.us-east-2.amazonaws.com/helvetica-neue-normal.ttf")
-                format("truetype");
+            src: url("https://forbesme-prestaging-media.s3.us-east-2.amazonaws.com/helvetica-neue-normal.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
-
         @font-face {
             font-family: "EuclidCircularB-Semibold";
-            src: url("Fonts/EuclidCircularB-Semibold.ttf")
-                format("truetype");
+            src: url("Fonts/EuclidCircularB-Semibold.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
-
         #input-template .post-data-preview {
             font-family: "EuclidCircularB-Semibold" !important;
         }
-
         #arabic-post-template-with-img .post-data-preview {
             font-family: "GE SS Two Medium" !important;
         }
@@ -62,6 +55,7 @@
 
 <body>
     <div class="wrapper">
+        <!-- Input Section -->
         <section id="input-template" class="" style="margin-top: 100px;">
             <div class="container">
                 <div class="row">
@@ -104,16 +98,16 @@
                     </div>
                 </div>
             </div>
+            <!-- Hidden preview image used for reading the uploaded file -->
             <img class="post-img-preview d-none" id="img-src" src="" alt="previes img">
         </section>
 
+        <!-- English Template -->
         <section class="d-none" id="english-post-template-with-img" style="margin-bottom: 30px;">
-
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div id="imagePost" class=""
-                            style="width: 700px; height: 700px; margin: 0 auto; position: relative;">
+                        <div id="imagePost" style="width: 700px; height: 700px; margin: 0 auto; position: relative;">
                             <div class="blackLogo">
                                 <img class="LogoColor"
                                     style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
@@ -130,13 +124,13 @@
                                     alt="" id="img-src3">
                                 <img class="w-100" style="margin-top: -728px; height:100%" src="images/Shadow.png" alt="">
                             </div>
-                            <div class="text-div Margin_Set" id="" style="position: absolute; bottom:30px" dir="ltr">
+                            <div class="text-div Margin_Set" style="position: absolute; bottom:30px" dir="ltr">
                                 <img class="breaking_news_image"
                                     style="width: 170px; margin-left: 30px;" src="images/BN.png" alt="">
                                 <div class="english-border"
                                     style="margin-left: 20px;border-left: 7px solid red; position: relative;">
                                     <p class="post-data-preview"
-                                        style="font-size: 30px; font-family:EuclidCircularB-Semibold; color: #fff; margin-left: 20px; padding-right: 25px; margin-top: 15px; ">
+                                        style="font-size: 30px; font-family:EuclidCircularB-Semibold; color: #fff; margin-left: 20px; padding-right: 25px; margin-top: 15px;">
                                     </p>
                                 </div>
                             </div>
@@ -153,27 +147,28 @@
                                 </div>
                                 <div class="col-mv-6">
                                     <label for="bg-img" class="form-label">Set Position</label>
-                                    <input type="number" class="form-control positionEngImg mb-2"
-                                        name="positionEngImg" value="-100">
+                                    <input type="number" class="form-control positionEngImg mb-2" name="positionEngImg" value="-100">
                                 </div>
                                 <div class="col-mdd-6">
                                     <label for="font-size" class="form-label">Set Line Height</label>
-                                    <input type="number" class="form-control line-height mb-2" name="line-height"
-                                        step="0.1" value="1.5">
+                                    <input type="number" class="form-control line-height mb-2" name="line-height" step="0.1" value="1.5">
                                 </div>
                             </form>
                         </div>
+                        <!-- Download Button added here -->
+                        <button type="button" class="btn btn-success download-btn" style="margin-top:15px;">Download Image</button>
                     </div>
                 </div>
             </div>
         </section>
-        
+
+        <!-- Arabic Template -->
         <section class="d-none" id="arabic-post-template-with-img" style="margin-bottom: 30px;">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class=""
-                            style="width: 700px; height: 700px; margin: 0 auto; position: relative;">
+                        <!-- Main container now given id "arabicPost" -->
+                        <div id="arabicPost" style="width: 700px; height: 700px; margin: 0 auto; position: relative;">
                             <div class="blackLogo">
                                 <img class="LogoColor"
                                     style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
@@ -185,18 +180,17 @@
                                     src="images/LogoW.png" alt="">
                             </div>
                             <div class="bg-img my-0 mx-auto" style="height:100%;">
-                                <img class="w-100 text-div Position_Set"
-                                    src="mattias-diesel-3M2cqBRQmjA-unsplash.jpg"
+                                <img class="w-100 text-div Position_Set" src="mattias-diesel-3M2cqBRQmjA-unsplash.jpg"
                                     style="height:100%; object-fit: cover;" alt="" id="img-src4">
                                 <img class="w-100" style="margin-top: -728px; height:100%" src="images/Shadow.png" alt="">
                             </div>
-                            <div class="text-div Margin_Set" id="" style="position: absolute; bottom:30px" dir="rtl">
+                            <div class="text-div Margin_Set" style="position: absolute; bottom:30px" dir="rtl">
                                 <img class="breaking_news_image"
                                     style="width: 170px; margin-right: 30px;" src="images/ajil.png" alt="">
                                 <div class="arabic-border"
                                     style="margin-right: 20px;border-right: 7px solid red; position: relative; direction: rtl;">
                                     <p class="post-data-preview"
-                                        style="font-size: 30px; color: #fff; margin-left: 20px; padding-right: 25px; margin-top: 15px; ">
+                                        style="font-size: 30px; color: #fff; margin-left: 20px; padding-right: 25px; margin-top: 15px;">
                                         curValue will include 'px' at the end, so you'll end up with NaN or 100px100px as your result without using parseInt first.
                                     </p>
                                 </div>
@@ -214,21 +208,23 @@
                                 </div>
                                 <div class="col-mv-6">
                                     <label for="bg-img" class="form-label">Set Position</label>
-                                    <input type="number" class="form-control positionArImg mb-2"
-                                        name="positionArImg" value="-100">
+                                    <input type="number" class="form-control positionArImg mb-2" name="positionArImg" value="-100">
                                 </div>
                                 <div class="col-mdd-6">
                                     <label for="font-size" class="form-label">Set Line Height</label>
-                                    <input type="number" class="form-control line-height mb-2" name="line-height"
-                                        step="0.1" value="1.5">
+                                    <input type="number" class="form-control line-height mb-2" name="line-height" step="0.1" value="1.5">
                                 </div>
                             </form>
                         </div>
+                        <!-- (Optional) Add a download button here as well if desired -->
+                        <button type="button" class="btn btn-success download-btn" style="margin-top:15px;">Download Image</button>
                     </div>
                 </div>
             </div>
         </section>
     </div>
+
+    <!-- Scripts -->
     <script>
         $(document).ready(function () {
             $(".targetEng").change(function () {
@@ -270,46 +266,43 @@
         });
     </script>
     <script>
-// Function to handle download button click
-$('#downloadButton').click(function () {
-    const postContent = document.querySelector('#imagePost'); // Adjust selector for the post container
-
-    // Use html2canvas to capture the content as an image
-    html2canvas(postContent, {
-        scale: 2 // Increase quality of the rendered image
-    }).then(canvas => {
-        canvas.toBlob(function (blob) {
-            // Use FileSaver.js to save the image
-            saveAs(blob, 'post_image.png');
+        // Download button click handler using event delegation
+        $(document).on('click', '.download-btn', function () {
+            let postContent;
+            if (!$('#english-post-template-with-img').hasClass('d-none')) {
+                postContent = document.querySelector('#imagePost');
+            } else if (!$('#arabic-post-template-with-img').hasClass('d-none')) {
+                postContent = document.querySelector('#arabicPost');
+            }
+            if (postContent) {
+                html2canvas(postContent, { scale: 2 }).then(canvas => {
+                    canvas.toBlob(function (blob) {
+                        saveAs(blob, 'post_image.png');
+                    });
+                });
+            }
         });
-    });
-});
-
-    </script>
-    <script>
-        $(document).ready(function () {
-    $('#hello').click(function () {
-        var postSize = $('select.post-size').children("option:selected").val();
-
-        if (postSize === 'wide') {
-            // Adjust the wide post size
-            $('#imagePost').css('width', '1200px').css('height', '700px');
-        }
-    });
-});
-
     </script>
     <script>
         $(document).ready(function () {
             $('#hello').click(function () {
-                var image = $('#post-img').attr('src');
-                // alert(image)
+                var postSize = $('select.post-size').children("option:selected").val();
+                if (postSize === 'wide') {
+                    $('#imagePost, #arabicPost').css({ 'width': '1200px', 'height': '700px' });
+                } else {
+                    $('#imagePost, #arabicPost').css({ 'width': '700px', 'height': '700px' });
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#hello').click(function () {
+                var image = $('#img-src').attr('src');
                 var selectedLanguage = $('select.select-langaue').children("option:selected").val();
                 var show_breaking = $('select.show_breaking').children("option:selected").val();
                 var show_logo = $('select.show_logo').children("option:selected").val();
-
                 if (selectedLanguage == 'English' && image) {
-                    // alert('arabic no image')
                     $('.post-data-preview').text($('#data').val());
                     $('#img-src3').attr('src', image);
                     $('#english-post-template-with-img').removeClass('d-none');
@@ -325,7 +318,6 @@ $('#downloadButton').click(function () {
                     $(".blackLogo").hide();
                 }
                 if (selectedLanguage == 'Arabic' && image) {
-                    // alert('arabic no image')
                     $('.post-data-preview').text($('#data').val());
                     $('#img-src4').attr('src', image);
                     $('#arabic-post-template-with-img').removeClass('d-none');
@@ -337,8 +329,7 @@ $('#downloadButton').click(function () {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    $('.post-img-preview')
-                        .attr('src', e.target.result);
+                    $('.post-img-preview').attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
             }
