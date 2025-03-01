@@ -57,6 +57,16 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
+        .logo-container {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .logo-image {
+            width: 120px;
+        }
     </style>
 </head>
 
@@ -78,7 +88,7 @@
                                 <option value="true">Yes</option>
                                 <option value="false" selected>No</option>
                             </select>
-                            <select class="form-select custom-select show_logo">
+                            <select class="form-select custom-select logo_color">
                                 <option selected>Logo Color</option>
                                 <option value="blackLogo">Black</option>
                                 <option value="whiteLogo" selected>White</option>
@@ -114,15 +124,8 @@
                 <div class="row">
                     <div class="col">
                         <div id="imagePost" style="width: 700px; height: 700px; margin: 0 auto;">
-                            <div class="blackLogo">
-                                <img class="LogoColor"
-                                    style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
-                                    src="images/LogoB.png" alt="">
-                            </div>
-                            <div class="whiteLogo">
-                                <img class="LogoColor"
-                                    style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
-                                    src="images/LogoW.png" alt="">
+                            <div class="logo-container">
+                                <img class="logo-image" src="images/LogoW.png" alt="Forbes Logo">
                             </div>
                             <div class="bg-img my-0 mx-auto" style="height:100%;">
                                 <div class="background-image Position_Set"></div>
@@ -175,15 +178,8 @@
                 <div class="row">
                     <div class="col">
                         <div id="arabicPost" style="width: 700px; height: 700px; margin: 0 auto;">
-                            <div class="blackLogo">
-                                <img class="LogoColor"
-                                    style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
-                                    src="images/LogoB.png" alt="">
-                            </div>
-                            <div class="whiteLogo">
-                                <img class="LogoColor"
-                                    style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
-                                    src="images/LogoW.png" alt="">
+                            <div class="logo-container">
+                                <img class="logo-image" src="images/LogoW.png" alt="Forbes Logo">
                             </div>
                             <div class="bg-img my-0 mx-auto" style="height:100%;">
                                 <div class="background-image Position_Set"></div>
@@ -233,6 +229,20 @@
 
     <script>
         $(document).ready(function () {
+            // Set initial logo color
+            let currentLogoColor = "whiteLogo";
+            
+            // Toggle logo color when clicked
+            $(document).on('click', '.logo-container', function() {
+                if (currentLogoColor === "whiteLogo") {
+                    currentLogoColor = "blackLogo";
+                    $('.logo-image').attr('src', 'images/LogoB.png');
+                } else {
+                    currentLogoColor = "whiteLogo";
+                    $('.logo-image').attr('src', 'images/LogoW.png');
+                }
+            });
+            
             // Margin Controls
             $(".targetEng").change(function () {
                 $(".Margin_Set").css("bottom", $(this).val() + "px");
@@ -260,12 +270,19 @@
             });
 
             // Post Size Toggle
-            $('#hello').click(function () {
-                const postSize = $('.post-size').val();
-                $("#imagePost, #arabicPost").css({
-                    width: postSize === 'wide' ? '1200px' : '700px',
-                    height: postSize === 'wide' ? '700px' : '700px'
-                });
+            $('.post-size').change(function() {
+                const postSize = $(this).val();
+                if (postSize === 'wide') {
+                    $("#imagePost, #arabicPost").css({
+                        width: '1200px',
+                        height: '700px'
+                    });
+                } else {
+                    $("#imagePost, #arabicPost").css({
+                        width: '700px',
+                        height: '700px'
+                    });
+                }
             });
         });
 
@@ -303,11 +320,25 @@
         $('#hello').click(function () {
             const language = $('.select-langaue').val();
             const showBreaking = $('.show_breaking').val() === 'true';
-            const logoColor = $('.show_logo').val();
+            const logoColor = $('.logo_color').val();
+            
+            // Set initial logo color based on selection
+            if (logoColor === 'blackLogo') {
+                $('.logo-image').attr('src', 'images/LogoB.png');
+                currentLogoColor = "blackLogo";
+            } else {
+                $('.logo-image').attr('src', 'images/LogoW.png');
+                currentLogoColor = "whiteLogo";
+            }
 
             $('.breaking_news_image').toggle(showBreaking);
-            $('.blackLogo').toggle(logoColor === 'blackLogo');
-            $('.whiteLogo').toggle(logoColor === 'whiteLogo');
+            
+            // Apply post size
+            const postSize = $('.post-size').val();
+            $("#imagePost, #arabicPost").css({
+                width: postSize === 'wide' ? '1200px' : '700px',
+                height: '700px'
+            });
 
             if (language === 'English') {
                 $('#english-post-template-with-img').removeClass('d-none');
