@@ -11,20 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="Fonts/EuclidCircularB-Semibold.ttf">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
     <style type="text/css">
         @font-face {
             font-family: "GE SS Two Medium";
@@ -49,6 +35,27 @@
         }
         #arabic-post-template-with-img .post-data-preview {
             font-family: "GE SS Two Medium" !important;
+        }
+        .background-image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+        }
+        #imagePost, #arabicPost {
+            position: relative;
+            overflow: hidden;
+        }
+        .download-btn {
+            margin-top: 10px;
+            padding: 12px 24px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
     </style>
 </head>
@@ -98,8 +105,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Hidden preview image used for reading the uploaded file -->
-            <img class="post-img-preview d-none" id="img-src" src="" alt="previes img">
+            <img class="post-img-preview d-none" id="img-src" src="" alt="preview img">
         </section>
 
         <!-- English Template -->
@@ -107,7 +113,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div id="imagePost" style="width: 700px; height: 700px; margin: 0 auto; position: relative;">
+                        <div id="imagePost" style="width: 700px; height: 700px; margin: 0 auto;">
                             <div class="blackLogo">
                                 <img class="LogoColor"
                                     style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
@@ -119,9 +125,7 @@
                                     src="images/LogoW.png" alt="">
                             </div>
                             <div class="bg-img my-0 mx-auto" style="height:100%;">
-                                <img class="w-100 text-div Position_Set"
-                                    style="height:100%; object-fit: cover;" src="mattias-diesel-3M2cqBRQmjA-unsplash.jpg"
-                                    alt="" id="img-src3">
+                                <div class="background-image Position_Set"></div>
                                 <img class="w-100" style="margin-top: -728px; height:100%" src="images/Shadow.png" alt="">
                             </div>
                             <div class="text-div Margin_Set" style="position: absolute; bottom:30px" dir="ltr">
@@ -147,16 +151,19 @@
                                 </div>
                                 <div class="col-mv-6">
                                     <label for="bg-img" class="form-label">Set Position</label>
-                                    <input type="number" class="form-control positionEngImg mb-2" name="positionEngImg" value="-100">
+                                    <input type="number" class="form-control positionEngImg mb-2" name="positionEngImg" value="0">
                                 </div>
                                 <div class="col-mdd-6">
                                     <label for="font-size" class="form-label">Set Line Height</label>
                                     <input type="number" class="form-control line-height mb-2" name="line-height" step="0.1" value="1.5">
                                 </div>
+                                <div class="col-mdd-6 mt-3">
+                                    <button type="button" class="btn btn-success download-btn w-100">
+                                        <i class="bi bi-download me-2"></i>Download Image
+                                    </button>
+                                </div>
                             </form>
                         </div>
-                        <!-- Download Button added here -->
-                        <button type="button" class="btn btn-success download-btn" style="margin-top:15px;">Download Image</button>
                     </div>
                 </div>
             </div>
@@ -167,8 +174,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <!-- Main container now given id "arabicPost" -->
-                        <div id="arabicPost" style="width: 700px; height: 700px; margin: 0 auto; position: relative;">
+                        <div id="arabicPost" style="width: 700px; height: 700px; margin: 0 auto;">
                             <div class="blackLogo">
                                 <img class="LogoColor"
                                     style="width: 120px; position: absolute; margin-top: 25px; margin-left: 25px;"
@@ -180,8 +186,7 @@
                                     src="images/LogoW.png" alt="">
                             </div>
                             <div class="bg-img my-0 mx-auto" style="height:100%;">
-                                <img class="w-100 text-div Position_Set" src="mattias-diesel-3M2cqBRQmjA-unsplash.jpg"
-                                    style="height:100%; object-fit: cover;" alt="" id="img-src4">
+                                <div class="background-image Position_Set"></div>
                                 <img class="w-100" style="margin-top: -728px; height:100%" src="images/Shadow.png" alt="">
                             </div>
                             <div class="text-div Margin_Set" style="position: absolute; bottom:30px" dir="rtl">
@@ -191,7 +196,6 @@
                                     style="margin-right: 20px;border-right: 7px solid red; position: relative; direction: rtl;">
                                     <p class="post-data-preview"
                                         style="font-size: 30px; color: #fff; margin-left: 20px; padding-right: 25px; margin-top: 15px;">
-                                        curValue will include 'px' at the end, so you'll end up with NaN or 100px100px as your result without using parseInt first.
                                     </p>
                                 </div>
                             </div>
@@ -208,133 +212,114 @@
                                 </div>
                                 <div class="col-mv-6">
                                     <label for="bg-img" class="form-label">Set Position</label>
-                                    <input type="number" class="form-control positionArImg mb-2" name="positionArImg" value="-100">
+                                    <input type="number" class="form-control positionArImg mb-2" name="positionArImg" value="0">
                                 </div>
                                 <div class="col-mdd-6">
                                     <label for="font-size" class="form-label">Set Line Height</label>
                                     <input type="number" class="form-control line-height mb-2" name="line-height" step="0.1" value="1.5">
                                 </div>
+                                <div class="col-mdd-6 mt-3">
+                                    <button type="button" class="btn btn-success download-btn w-100">
+                                        <i class="bi bi-download me-2"></i>Download Image
+                                    </button>
+                                </div>
                             </form>
                         </div>
-                        <!-- (Optional) Add a download button here as well if desired -->
-                        <button type="button" class="btn btn-success download-btn" style="margin-top:15px;">Download Image</button>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Scripts -->
     <script>
         $(document).ready(function () {
+            // Margin Controls
             $(".targetEng").change(function () {
-                var str = $(".targetEng").val();
-                $(".Margin_Set").css("bottom", parseInt(str));
+                $(".Margin_Set").css("bottom", $(this).val() + "px");
             });
             $(".targetAr").change(function () {
-                var str = $(".targetAr").val();
-                $(".Margin_Set").css("bottom", parseInt(str));
+                $(".Margin_Set").css("bottom", $(this).val() + "px");
             });
+
+            // Font Controls
             $(".font-size").change(function () {
-                console.log("Here");
-                var str = $(this).val();
-                console.log(str + "px");
-                $(".post-data-preview").css("font-size", parseInt(str));
+                $(".post-data-preview").css("font-size", $(this).val() + "px");
+            });
+
+            // Image Positioning
+            $(".positionEngImg").change(function () {
+                $("#imagePost .background-image").css("background-position", "center " + $(this).val() + "%");
             });
             $(".positionArImg").change(function () {
-                var str = $(".positionArImg").val();
-                $(".Position_Set").css("object-position", parseFloat(str));
+                $("#arabicPost .background-image").css("background-position", "center " + $(this).val() + "%");
             });
-            $(".positionEngImg").change(function () {
-                var str = $(".positionEngImg").val();
-                $(".Position_Set").css("object-position", parseFloat(str));
-            });
+
+            // Line Height
             $(".line-height").change(function () {
-                console.log("Here");
-                var str = $(this).val();
-                console.log(str);
-                $(".post-data-preview").css("line-height", str);
+                $(".post-data-preview").css("line-height", $(this).val());
             });
-            $(".LogoColor").on({
-                'click': function () {
-                    let src = ($(this).attr('src') === "images/LogoB.png") ?
-                        'images/LogoW.png' :
-                        'images/LogoB.png';
-                    $(this).attr('src', src);
-                }
-            });
-        });
-    </script>
-    <script>
-        // Download button click handler using event delegation
-        $(document).on('click', '.download-btn', function () {
-            let postContent;
-            if (!$('#english-post-template-with-img').hasClass('d-none')) {
-                postContent = document.querySelector('#imagePost');
-            } else if (!$('#arabic-post-template-with-img').hasClass('d-none')) {
-                postContent = document.querySelector('#arabicPost');
-            }
-            if (postContent) {
-                html2canvas(postContent, { scale: 2 }).then(canvas => {
-                    canvas.toBlob(function (blob) {
-                        saveAs(blob, 'post_image.png');
-                    });
+
+            // Post Size Toggle
+            $('#hello').click(function () {
+                const postSize = $('.post-size').val();
+                $("#imagePost, #arabicPost").css({
+                    width: postSize === 'wide' ? '1200px' : '700px',
+                    height: postSize === 'wide' ? '700px' : '700px'
                 });
-            }
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#hello').click(function () {
-                var postSize = $('select.post-size').children("option:selected").val();
-                if (postSize === 'wide') {
-                    $('#imagePost, #arabicPost').css({ 'width': '1200px', 'height': '700px' });
-                } else {
-                    $('#imagePost, #arabicPost').css({ 'width': '700px', 'height': '700px' });
-                }
             });
         });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#hello').click(function () {
-                var image = $('#img-src').attr('src');
-                var selectedLanguage = $('select.select-langaue').children("option:selected").val();
-                var show_breaking = $('select.show_breaking').children("option:selected").val();
-                var show_logo = $('select.show_logo').children("option:selected").val();
-                if (selectedLanguage == 'English' && image) {
-                    $('.post-data-preview').text($('#data').val());
-                    $('#img-src3').attr('src', image);
-                    $('#english-post-template-with-img').removeClass('d-none');
-                    $('#input-template').addClass('d-none');
-                }
-                if (show_breaking == "false") {
-                    $(".breaking_news_image").hide();
-                }
-                if (show_logo == "blackLogo") {
-                    $(".whiteLogo").hide();
-                }
-                if (show_logo == "whiteLogo") {
-                    $(".blackLogo").hide();
-                }
-                if (selectedLanguage == 'Arabic' && image) {
-                    $('.post-data-preview').text($('#data').val());
-                    $('#img-src4').attr('src', image);
-                    $('#arabic-post-template-with-img').removeClass('d-none');
-                    $('#input-template').addClass('d-none');
-                }
-            });
-        });
+
+        // Image Upload Handler
         function readURL(input) {
             if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('.post-img-preview').attr('src', e.target.result);
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $('.background-image').css('background-image', 'url(' + e.target.result + ')');
+                    $('#img-src').attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        // Download Handler
+        $(document).on('click', '.download-btn', function() {
+            const postContent = $('#english-post-template-with-img').is(':visible') ? 
+                document.querySelector('#imagePost') : 
+                document.querySelector('#arabicPost');
+
+            html2canvas(postContent, {
+                scale: 3,
+                useCORS: true,
+                allowTaint: true,
+                logging: true
+            }).then(canvas => {
+                canvas.toBlob(blob => {
+                    saveAs(blob, 'forbes-post.png');
+                });
+            });
+        });
+
+        // Template Visibility Handler
+        $('#hello').click(function () {
+            const language = $('.select-langaue').val();
+            const showBreaking = $('.show_breaking').val() === 'true';
+            const logoColor = $('.show_logo').val();
+
+            $('.breaking_news_image').toggle(showBreaking);
+            $('.blackLogo').toggle(logoColor === 'blackLogo');
+            $('.whiteLogo').toggle(logoColor === 'whiteLogo');
+
+            if (language === 'English') {
+                $('#english-post-template-with-img').removeClass('d-none');
+                $('#arabic-post-template-with-img').addClass('d-none');
+                $('#imagePost .post-data-preview').text($('#data').val());
+            } else {
+                $('#arabic-post-template-with-img').removeClass('d-none');
+                $('#english-post-template-with-img').addClass('d-none');
+                $('#arabicPost .post-data-preview').text($('#data').val());
+            }
+            $('#input-template').addClass('d-none');
+        });
     </script>
 </body>
-
 </html>
