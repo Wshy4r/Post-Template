@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="col-mv-6">
                                     <label for="bg-img" class="form-label">Set Position</label>
-                                    <input type="number" class="form-control positionEngImg mb-2" name="positionEngImg" value="0">
+                                    <input type="number" class="form-control positionEngImg mb-2" name="positionEngImg" value="50">
                                 </div>
                                 <div class="col-mdd-6">
                                     <label for="font-size" class="form-label">Set Line Height</label>
@@ -208,7 +208,7 @@
                                 </div>
                                 <div class="col-mv-6">
                                     <label for="bg-img" class="form-label">Set Position</label>
-                                    <input type="number" class="form-control positionArImg mb-2" name="positionArImg" value="0">
+                                    <input type="number" class="form-control positionArImg mb-2" name="positionArImg" value="50">
                                 </div>
                                 <div class="col-mdd-6">
                                     <label for="font-size" class="form-label">Set Line Height</label>
@@ -256,12 +256,12 @@
                 $(".post-data-preview").css("font-size", $(this).val() + "px");
             });
 
-            // Image Positioning
+            // Image Positioning - FIXED to control horizontal position
             $(".positionEngImg").change(function () {
-                $("#imagePost .background-image").css("background-position", "center " + $(this).val() + "%");
+                $("#imagePost .background-image").css("background-position", $(this).val() + "% center");
             });
             $(".positionArImg").change(function () {
-                $("#arabicPost .background-image").css("background-position", "center " + $(this).val() + "%");
+                $("#arabicPost .background-image").css("background-position", $(this).val() + "% center");
             });
 
             // Line Height
