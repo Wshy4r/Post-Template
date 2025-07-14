@@ -18,24 +18,29 @@
             font-style: normal;
             font-weight: normal;
         }
+
         @font-face {
             font-family: "Helvetica-Neue";
             src: url("https://forbesme-prestaging-media.s3.us-east-2.amazonaws.com/helvetica-neue-normal.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
+
         @font-face {
             font-family: "EuclidCircularB-Semibold";
             src: url("Fonts/EuclidCircularB-Semibold.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
+
         #input-template .post-data-preview {
             font-family: "EuclidCircularB-Semibold" !important;
         }
+
         #arabic-post-template-with-img .post-data-preview {
             font-family: "GE SS Two Medium" !important;
         }
+
         .background-image {
             background-size: cover;
             background-position: center;
@@ -43,20 +48,25 @@
             height: 100%;
             width: 100%;
         }
-        #imagePost, #arabicPost {
+
+        #imagePost,
+        #arabicPost {
             position: relative;
             overflow: hidden;
         }
+
         .download-btn {
             margin-top: 10px;
             padding: 12px 24px;
             font-weight: bold;
             transition: all 0.3s ease;
         }
+
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
+
         .logo-container {
             position: absolute;
             top: 25px;
@@ -64,6 +74,7 @@
             cursor: pointer;
             z-index: 10;
         }
+
         .logo-image {
             width: 120px;
         }
@@ -72,7 +83,6 @@
 
 <body>
     <div class="wrapper">
-        <!-- Input Section -->
         <section id="input-template" class="" style="margin-top: 100px;">
             <div class="container">
                 <div class="row">
@@ -118,7 +128,6 @@
             <img class="post-img-preview d-none" id="img-src" src="" alt="preview img">
         </section>
 
-        <!-- English Template -->
         <section class="d-none" id="english-post-template-with-img" style="margin-bottom: 30px;">
             <div class="container">
                 <div class="row">
@@ -172,7 +181,6 @@
             </div>
         </section>
 
-        <!-- Arabic Template -->
         <section class="d-none" id="arabic-post-template-with-img" style="margin-bottom: 30px;">
             <div class="container">
                 <div class="row">
@@ -185,7 +193,7 @@
                                 <div class="background-image Position_Set"></div>
                                 <img class="w-100" style="margin-top: -728px; height:100%" src="images/Shadow.png" alt="">
                             </div>
-                            <div class="text-div Margin_Set" style="position: absolute; bottom:30px" dir="rtl">
+                            <div class="text-div Margin_Set" style="position: absolute; bottom:30px; right: 20px;" dir="rtl">
                                 <img class="breaking_news_image"
                                     style="width: 170px; margin-right: 30px;" src="images/ajil.png" alt="">
                                 <div class="arabic-border"
@@ -231,9 +239,9 @@
         $(document).ready(function () {
             // Set initial logo color
             let currentLogoColor = "whiteLogo";
-            
+
             // Toggle logo color when clicked
-            $(document).on('click', '.logo-container', function() {
+            $(document).on('click', '.logo-container', function () {
                 if (currentLogoColor === "whiteLogo") {
                     currentLogoColor = "blackLogo";
                     $('.logo-image').attr('src', 'images/LogoB.png');
@@ -242,7 +250,7 @@
                     $('.logo-image').attr('src', 'images/LogoW.png');
                 }
             });
-            
+
             // Margin Controls
             $(".targetEng").change(function () {
                 $(".Margin_Set").css("bottom", $(this).val() + "px");
@@ -264,13 +272,18 @@
                 $("#arabicPost .background-image").css("background-position", $(this).val() + "% center");
             });
 
+            // Horizontal Offset for Arabic Text Block
+            $(".horizontal-offset-ar").change(function () {
+                $("#arabicPost .text-div").css("right", $(this).val() + "px");
+            });
+
             // Line Height
             $(".line-height").change(function () {
                 $(".post-data-preview").css("line-height", $(this).val());
             });
 
             // Post Size Toggle
-            $('.post-size').change(function() {
+            $('.post-size').change(function () {
                 const postSize = $(this).val();
                 if (postSize === 'wide') {
                     $("#imagePost, #arabicPost").css({
@@ -290,7 +303,7 @@
         function readURL(input) {
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     $('.background-image').css('background-image', 'url(' + e.target.result + ')');
                     $('#img-src').attr('src', e.target.result);
                 };
@@ -299,9 +312,9 @@
         }
 
         // Download Handler
-        $(document).on('click', '.download-btn', function() {
-            const postContent = $('#english-post-template-with-img').is(':visible') ? 
-                document.querySelector('#imagePost') : 
+        $(document).on('click', '.download-btn', function () {
+            const postContent = $('#english-post-template-with-img').is(':visible') ?
+                document.querySelector('#imagePost') :
                 document.querySelector('#arabicPost');
 
             html2canvas(postContent, {
@@ -321,7 +334,7 @@
             const language = $('.select-langaue').val();
             const showBreaking = $('.show_breaking').val() === 'true';
             const logoColor = $('.logo_color').val();
-            
+
             // Set initial logo color based on selection
             if (logoColor === 'blackLogo') {
                 $('.logo-image').attr('src', 'images/LogoB.png');
@@ -332,7 +345,7 @@
             }
 
             $('.breaking_news_image').toggle(showBreaking);
-            
+
             // Apply post size
             const postSize = $('.post-size').val();
             $("#imagePost, #arabicPost").css({
@@ -353,4 +366,5 @@
         });
     </script>
 </body>
+
 </html>
